@@ -12,10 +12,7 @@
 
 	// recupero la richiesta
 	$request = new Request();
-	
-	Router::route($request);
-	
-	/*
+		
 	// se sono loggato
 	// ruota verso il sistema
 	if($sys_user -> checkLogin()){
@@ -67,5 +64,5 @@
 		}
 
 	}
-	*/
+
 ?>
