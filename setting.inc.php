@@ -61,7 +61,9 @@
 		
 		break;
 	 }
-	
+	 
+	 define("CONNECTION_STRING",DB_Type.":host=".DB_Hostname.";port=".DB_Port.";dbname=".DB_Name);
+
 	 define('SITE_DIR',ROOT_DIR);
 	 
 	 ## DIRNAME CONFIGURATION
