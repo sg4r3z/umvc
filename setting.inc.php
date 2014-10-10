@@ -84,8 +84,8 @@
  	 define('PATH_Validators', ROOT_DIR.DS.VALIDATOR_dirname);
  	 
 	 ## DEFAULT VIEW
-	 define("DEFAULT_CONTROLLER","index");
-	 define("DEFAULT_METHOD","index");
+	 define("DEFAULT_CONTROLLER","sys_user");
+	 define("DEFAULT_METHOD","listing");
 	 
 	 define("ERROR_404","general/error_404.php");
 	 
