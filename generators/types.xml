@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<servers>
+        <mysql>
+                <types>
+                       <type>
+                                <name>INT</name>
+                                <pattern><![CDATA[\d]]></pattern>
+                       </type> 
+                       <type>
+                                <name>TINYINT</name>
+                                <pattern><![CDATA[\d]]></pattern>
+                       </type> 
+                       <type>
+                                <name>DECIMAL</name>
+                                <pattern><![CDATA[\d.\d]]></pattern>
+                       </type> 
+                       <type>
+                                <name>VARCHAR</name>
+                                <pattern><![CDATA[.]]></pattern>
+                       </type> 
+                       <type>
+                                <name>TEXT</name>
+                                <pattern><![CDATA[.]]></pattern>
+                       </type> 
+                       <type>
+                                <name>BLOB</name>
+                                <pattern><![CDATA[.]]></pattern>
+                       </type> 
+                       <type>
+                                <name>LONGTEXT</name>
+                                <pattern><![CDATA[.]]></pattern>
+                       </type> 
+                       <type>
+                                <name>DATE</name>
+                                <pattern><![CDATA[^\d{4}-\d{2}-\d{2}$]]></pattern>
+                       </type> 
+                       <type>
+                                <name>DATETIME</name>
+                                <pattern><![CDATA[^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$]]></pattern>
+                       </type>
+                </types>
+        </mysql>
+</servers>
