@@ -28,7 +28,6 @@
 					if(is_readable(PATH_Validators.DS."validator.{$class}.php"))
 						require_once(PATH_Validators.DS."validator.{$class}.php");
 					
-					
 					$validator_class = "{$class}Validator";
 					$validators[$class] = new $validator_class();
 				}

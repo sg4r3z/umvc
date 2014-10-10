@@ -56,7 +56,6 @@
 			
 		}
 
-		
 		public function editPwd(){
 
 			$registry = Registry::get_instance();
@@ -213,7 +212,7 @@
 		}
 		
 		public function listing(){
-						
+			
 			// carico le classi esterne
 			Loader::load_external(PATH_Framework.DS."paginator".DS."class.paginator.php");
 			
@@ -269,7 +268,6 @@
 		
 		}
 	
-	
 		public function add(){
 		
 			$registry = Registry::get_instance();
@@ -323,8 +321,7 @@
 		
 		
 		}
-	
-	
+
 		public function edit(){
 			
 			// recupero i dati dal registro
@@ -412,7 +409,6 @@
 				
 		
 		}
-	
 	
 		public function view(){
 			

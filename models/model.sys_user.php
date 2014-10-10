@@ -16,7 +16,7 @@
 		  * @param null
 		  * @return true or false
 		  */
-		 public function checkLogin(){
+		public function checkLogin(){
 			
 			$s_id = false;
 			$s_userrole_fk = false;
@@ -41,7 +41,10 @@
 		public function get($id){
 			
 			$item = parent::get($id);
-			$sys_userrole = new Sys_userrole($this -> _db);
+			
+			// recupero il validator
+			$validator = new sys_userroleValidator();
+			$sys_userrole = new sys_userrole($this -> _db,$validator -> get());
 
 			$item_role = $sys_userrole -> get($item-> sys_userrole_fk);
 
