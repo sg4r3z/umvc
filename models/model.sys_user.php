@@ -10,23 +10,7 @@
 
 		 protected $_db;
 		 public $_tableName = "sys_user";
-		 protected $_validator = array(
-										'username' => array('type' => "VARCHAR",'pattern' => "/^.+$/", 'createnew' => 1,'modify' => 0),
-										'lastvisit' => array('type' => "DATETIME",'pattern' => "/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/", 'createnew' => 0,'modify' => 0),
-										'blocked' => array('type' => "INT",'pattern' => "/^\d{1}$/", 'createnew' => 0,'modify' => 0),
-										'nome' => array('type' => "VARCHAR",'pattern' => "/^.+$/", 'createnew' => 0,'modify' => 0),
-										'activationcode' => array('type' => "VARCHAR",'pattern' => "/^.+$/", 'createnew' => 0,'modify' => 0),
-										'id' => array('type' => "INT",'pattern' => "/^\d{1,11}$/", 'createnew' => 0,'modify' => 0),
-										'registerdate' => array('type' => "DATETIME",'pattern' => "/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/", 'createnew' => 0,'modify' => 0),
-										'sendemail' => array('type' => "INT",'pattern' => "/^\d{1}$/", 'createnew' => 0,'modify' => 0),
-										'sys_userrole_fk' => array('type' => "INT",'pattern' => "/^\d+$/", 'createnew' => 1,'modify' => 0),
-										'password' => array('type' => "VARCHAR",'pattern' => "/^.+$/", 'createnew' => 1,'modify' => 0),
-										'email' => array('type' => "VARCHAR",'pattern' => "/^.{1,150}$/", 'createnew' => 0,'modify' => 0)
-								);
 
-
-		 public function __construct($db){ $this -> _db = $db; }
-		 
 		 /*
 		  * controlla lo stato della sessione
 		  * @param null

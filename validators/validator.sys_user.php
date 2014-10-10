@@ -21,6 +21,6 @@
 										'password' => array('type' => "VARCHAR",'pattern' => "/^.{1,150}$/", 'createnew' => 0,'modify' => 0),
 										'email' => array('type' => "VARCHAR",'pattern' => "/^.{1,150}$/", 'createnew' => 0,'modify' => 0)
 								);
- 
+								
 	}
 ?>
