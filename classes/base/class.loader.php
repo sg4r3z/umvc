@@ -3,8 +3,13 @@
 		
 		private static $registry = null;
 
-		public static function load($db){
+		public static function load(){
 			
+			/**
+			 * inizializzo la connessione al DB
+			 */
+			$db = new db(CONNECTION_STRING, DB_Username, DB_Password);
+	
 			// inizializzo il registro
 			self::$registry = Registry::get_instance();
 			
