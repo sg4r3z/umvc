@@ -3,12 +3,12 @@
 	 ## ROOT CONFIGURATION
 	 define('ROOT_DIR', dirname(__FILE__));
 	 
-	 $ar_dirname = explode(DS,ROOT_DIR);
-	 $project_dirname = $ar_dirname[count($ar_dirname)-1];
-	 
 	 ##
 	 define('DS', DIRECTORY_SEPARATOR); 
 	 define('US', '/');
+	 
+	 $ar_dirname = explode(DS,ROOT_DIR);
+	 $project_dirname = $ar_dirname[count($ar_dirname)-1];
 	 
 	 ## DEFAULT LANGUAGE
 	 define('DEFAULT_LANGUAGE', 'it-IT');
