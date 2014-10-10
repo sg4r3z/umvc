@@ -3,6 +3,9 @@
 	 ## ROOT CONFIGURATION
 	 define('ROOT_DIR', dirname(__FILE__));
 	 
+	 $ar_dirname = explode(DS,ROOT_DIR);
+	 $project_dirname = $ar_dirname[count($ar_dirname)-1];
+	 
 	 ##
 	 define('DS', DIRECTORY_SEPARATOR); 
 	 define('US', '/');
@@ -50,7 +53,7 @@
 	  	define('DB_Port', '3306');
 
 		define("SITE_NAME","");
-		define("APP_NAME","2014");
+		define("APP_NAME",$project_dirname);
 		define('SITE_URL','http://localhost'.US.APP_NAME);
 
 		 ## definisco una costante path per gli allegati
@@ -88,6 +91,15 @@
 	 
 	 // numero di record mostrati nelle liste
 	 define("SHOWRECS",10);
+	 
+	  // define
+	 define("NAVBAR_TITLE","Nuovo Progetto");
+	 define("TITLE", "Nuovo Progetto");
+	 define("SITE_TITLE", "Nuovo Progetto");
+	 define("FOOTER","&copy ".date("Y")." - ".SITE_TITLE);
+
+	 define("IMAGE_URL",SITE_URL.US."views".US."general".US."images");
+	 
 	  
 	
 ?>
