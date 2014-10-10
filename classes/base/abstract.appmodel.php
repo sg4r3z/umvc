@@ -17,9 +17,11 @@
 		 * @param PDO $db object
 		 * @return null
 		 */
-		public function __construct($db,$validator){
+		public function __construct($db){
+			
 			$this -> _db = $db;
-			$this -> _validator = $validator;
+			$validator = $this -> _tableName."Validator";
+			$this -> _validator = new $validator();
 		}
 		
 		/**

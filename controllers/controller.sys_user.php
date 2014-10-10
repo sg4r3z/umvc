@@ -212,7 +212,7 @@
 		}
 		
 		public function listing(){
-			
+						
 			// carico le classi esterne
 			Loader::load_external(PATH_Framework.DS."paginator".DS."class.paginator.php");
 			

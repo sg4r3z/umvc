@@ -24,17 +24,13 @@
 				if($file != ".." && $file != "."){
 					$class_ar = explode(".",$file);
 					$class = $class_ar[count($class_ar)-2];
-										
+					
+					// includo singolarmente ogni validator			
 					if(is_readable(PATH_Validators.DS."validator.{$class}.php"))
 						require_once(PATH_Validators.DS."validator.{$class}.php");
 					
-					$validator_class = "{$class}Validator";
-					$validators[$class] = new $validator_class();
 				}
 			}
-			
-			// carico i modelli istanziati nel registro
-			self::$registry -> validator = $validators;
 					
 		}
 		
@@ -53,11 +49,7 @@
 					
 					$class_ar = explode(".",$file);
 					$model = $class_ar[count($class_ar)-2];
-					$validator = "{$model}Validator";
-					
-					$obj_validator = $registry -> validator[$model];
-					
-					$models[$model] = new $model($db,$obj_validator -> get());
+					$models[$model] = new $model($db);
 				}
 			}
 			

@@ -27,6 +27,12 @@
 			return $s_id && $s_userrole_fk;
 		}
 		
+		/**
+		 * estrae tutti i dati dalla 
+		 * tabella sys_user e li ritorna
+		 * @param wherecondition
+		 * @return items or null
+		 */
 		public function listing($wherecondition = "id > 0"){
 		
 			$items = parent::listing($wherecondition);
@@ -38,14 +44,16 @@
 			return $items_r;
 		}
 		
+		/**
+		 * estrare un singolo record dalla tabella
+		 * @param id
+		 * @return item or null
+		 */
 		public function get($id){
 			
 			$item = parent::get($id);
 			
-			// recupero il validator
-			$validator = new sys_userroleValidator();
-			$sys_userrole = new sys_userrole($this -> _db,$validator -> get());
-
+			$sys_userrole = new sys_userrole($this -> _db);
 			$item_role = $sys_userrole -> get($item-> sys_userrole_fk);
 
 			$item -> role_label = $item_role -> name;
@@ -58,7 +66,6 @@
 			$item -> registerdate = $date -> format("d/m/Y");
 			
 			return $item;
-		
 		}
 		 
 
