@@ -4,8 +4,11 @@ Reference: https://code.google.com/p/php-pdo-wrapper-class/
 
 ## GENERATORS FOLDER
 File: models_generator.py
-generate the models phpclass for framework
-modify them to configure the dbname,username,password
+generate the models class for framework in models/ directory
+generate the validators class for framework in validators/ dirctory
+
+automatically read setting.inc.php to interface with your db
+just configure the DB_Hostname,DB_Username,DB_Password,DB_Name in correct RUN_MODE
 
 # types.xml 
 the file types.xml allows the generator to define the pattern of validation to be used during the generation of the model
