@@ -39,14 +39,9 @@
 	include(PATH_Framework.DS."crud".DS."class.crud.php");
 			
 	/**
-	 * inizializzo la connessione al DB
-	 */
-	$db = new db(DB_Type.":host=".DB_Hostname.";port=".DB_Port.";dbname=".DB_Name, DB_Username, DB_Password);
-	
-	/**
 	 * chiamo il loader per istanziare 
 	 * e caricare tutti i modelli nel registro
 	 */
-	Loader::load($db);
+	Loader::load();
 		
 ?>
