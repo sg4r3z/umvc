@@ -100,6 +100,11 @@
 
 	 define("IMAGE_URL",SITE_URL.US."views".US."general".US."images");
 	 
+	 /* definizione di messaggi per errori controller */
+	 define("MESSAGE_PARAMETER_NOT_FOUND","Impossibile procedere, parametro id mancante");
+	 define("MESSAGE_PARAMETER_NOT_VALID","Impossibile procedere, il parametro passato non è valido");
+	 define("MESSAGE_RECORD_NOT_FOUND","Impossibile procedere, nessun record trovato");
+	 
 	  
 	
 ?>
