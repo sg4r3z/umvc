@@ -6,5 +6,6 @@
 			print_r($this -> registry);
 			echo "</pre>";
 		}
+		
 	}
 ?>

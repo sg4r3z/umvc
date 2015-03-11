@@ -19,7 +19,7 @@
 			$args = $r -> getArgs();
 									
 			// se il controller è leggibile
-			$controller_path = PATH_Controllers.DS."controller.$controller.php";
+			$controller_path = PATH_Controllers.DS.sprintf("controller.%s.php",$controller);
 			if(is_readable($controller_path)){
 				
 				// includo e istanzio il controller

@@ -79,11 +79,13 @@
 
 				
 				$view = new View("sys_user/edit_pwd");
+				
 				$view -> sys_user_id = $user_id;
 				$view -> title = "Modifica Password";
 				$view -> link_modifica_pwd = SITE_URL.US."sys_user".US."editPwd";
 				$view -> link_save_pwd = SITE_URL.US."sys_user".US."savePwd";
 				$view -> item_squadra = $item_squadra;
+				
 				$view -> render();
 			}
 			
@@ -132,7 +134,7 @@
 								":password" => $password,
 								":md5pass" => md5($password)
 							  );
-			
+							  				
 				$items = $sys_user -> select("sys_user",$wherecondition,$bind,$fields);
 				
 				// preparo l'array di log

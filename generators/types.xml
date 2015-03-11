@@ -38,6 +38,10 @@
                                 <name>DATETIME</name>
                                 <pattern><![CDATA[^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$]]></pattern>
                        </type>
+                       <type>
+								<name>TIME</name>
+								<pattern><![CDATA[^\d{2}:\d{2}.\d{2}$]]></pattern>
+                       </type>
                 </types>
         </mysql>
 </servers>

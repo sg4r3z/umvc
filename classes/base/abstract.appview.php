@@ -58,7 +58,7 @@
 				
 			// controllo esistenza view
 			if(is_readable(PATH_Views.DS.$this -> view.".php"))
-				require_once(PATH_Views.DS.$this -> view.".php");
+				require(PATH_Views.DS.$this -> view.".php");
 			
 			// se la vista non è stata trovata
 			else
