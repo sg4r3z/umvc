@@ -166,5 +166,29 @@
 			return true;
 		}
 		
+		public function convert_data($data){
+			 
+			if(!empty($data)){
+				
+				$data = trim($data);
+				$data_obj = DateTime::createFromFormat("d/m/Y",$data);
+				
+				$errors = DateTime::getLastErrors();
+				
+				if(intval($errors['error_count']) <= 0)
+					return $data_obj -> format("Y-m-d");
+				
+				// se arrivi qui, prova a vedere se devi convertire al contrario
+				$data_obj = DateTime::createFromFormat("Y-m-d",$data);
+				
+				$errors = DateTime::getLastErrors();
+				
+				if(intval($errors['error_count']) <= 0)
+					return $data_obj -> format("d/m/Y");			
+			}
+			
+			return "";
+		 }
+		
 	}
 ?>
