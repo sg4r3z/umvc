@@ -14,6 +14,9 @@
 	
 	<link rel="stylesheet" href="<?php echo SITE_URL.US."views".US."general".US."css".US."theme.css";?>" />	
 	
+	<!-- carica il css del picker -->
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo SITE_URL.US."views".US."general".US."css".US."bootstrap-datetimepicker.min.css"?>" />
+	
 	<!-- select2 css -->
 	<link rel="stylesheet" href="<?php echo SITE_URL.US."views".US."general".US."js".US."select2-3.5.1".US."select2.css"?>" />
 	<link rel="stylesheet" href="<?php echo SITE_URL.US."views".US."general".US."css".US."select2-bootstrap.css";?>" />	
@@ -37,6 +40,12 @@
 	
 	<!-- carico il select2 per l'autocompletamento -->
 	<script src="<?php echo SITE_URL.US."views".US."general".US."js".US."select2-3.5.1".US."select2.js"?>"></script>
+	
+	<!-- carica il datepicker -->
+	<script src="<?php echo SITE_URL.US."views".US."general".US."js".US."moment.js"?>"></script>
+	
+	<!-- carica il picker da github -->
+	<script type="text/javascript" src="<?php echo SITE_URL.US."views".US."general".US."js".US."bootstrap-datetimepicker.js" ?>"></script>
     
     <?php
 		// includo i css opzionali

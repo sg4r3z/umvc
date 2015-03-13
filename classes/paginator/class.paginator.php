@@ -13,7 +13,7 @@
 			private $model;
 						
 			
-			public function __construct($model,$method,$wherecondition = "id > 0",$showrecs = SHOWRECS){
+			public function __construct( AppModel $model,$method,$wherecondition = "id > 0",$showrecs = SHOWRECS){
 				
 				$this -> tableName = $model -> _tableName;
 				$this -> method = $method;

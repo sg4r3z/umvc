@@ -9,32 +9,10 @@
 		
 		$userrole_fk = intval($_SESSION['userrole_fk']);
 		
-		// controllo il ruolo per recuperare i pulsanti del menu
-		
-		if($userrole_fk == 1 || $userrole_fk == 7){
-			$nav_items = array(
-								//array("controller" => "sys_user", "label" => "Utenti"),
-								array("controller" => "squadra", "label" => "Squadre"),
-								array("controller" => "giocatore" ,"label" => "Giocatori"),
-								array("controller" => "serie_has_squadra/trasferisciSquadra","label" => "Associa Squadra a Serie"),
-								array("controller" => "trasferimenti/listTrasferibili","label" => "Trasferisci Giocatore"),
-								array("controller" => "cartella_clinica/exportDiagnosi","label" => "Export Diagnosi"),
-								array("controller" => "log_cartelle/showLog","label" => "Visualizza Log"),
-								array("controller" => "trasferimenti/nonAssociati","label" => "Elenco giocatori n.a.")
-								
-							   );
-		}
-		else{
-			$nav_items = array(
-								array("href" => "http://www.legavolley.it/","target" => "_blank","label" => "LegaVolley"),
-								array("href" => "http://www.amivolley.it/","target" => "_blank","label" => "A. M. I. Volley"),
-						    	array("href" => "#","target" => "_blank","label" => "Credits"),
-						    	array("controller" => "sys_user/editPwd","label" => "Modifica Password")
-							   );
-		}
-		
-
-		$nav_items = array();
+		$nav_items = array(
+							array("controller" => "sys_user", "label" => "Utenti"),
+							array("controller" => "anagrafica" , "label" => "Atleti")
+						  );
 		
 		// preparo i tasti per il nav
 		if(count($nav_items) > 0){
