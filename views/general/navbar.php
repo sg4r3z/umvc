@@ -9,10 +9,7 @@
 		
 		$userrole_fk = intval($_SESSION['userrole_fk']);
 		
-		$nav_items = array(
-							array("controller" => "sys_user", "label" => "Utenti"),
-							array("controller" => "anagrafica" , "label" => "Atleti")
-						  );
+		$nav_items = array();
 		
 		// preparo i tasti per il nav
 		if(count($nav_items) > 0){
