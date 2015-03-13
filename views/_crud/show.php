@@ -1,15 +1,27 @@
 <?php
 	// includo l'header delle crud
-	$view = new View("_crud/header");
+	$view = new View("general/header");
 	$view -> title = $title;
 	$view -> render();	
-		
+	
 ?>
 
 <div class='row'>
+	
+	<div class='page-header'>
+		<h1><?php echo $title?></h1>
+	</div>
+	
+	<!-- barra strumenti -->
+	<div class='col-md-12 text-right'>
+		<p>
+			<a href='<?php echo $link_add?>' class="btn btn-primary "><span class="glyphicon glyphicon-plus"></span> Nuovo</a>
+		</p>
+		<hr />
+	</div>
+	
 	<div class='col-md-12'>
-	    <h1><?php echo $title?></h1><br />
-	    
+		
 	    <?php
 	    	// show message 
 	    	if(isset($message_text) && isset($message_type)){
@@ -17,54 +29,90 @@
 			}
 	    ?>
 	    
-	    <table class='table'>
+	    <table class='table table-striped table-hover'>
 	    <?php 
 	    			
 	    	// show fields header
 	    	if(count($fields_header) > 0){
 				echo "<tr><th></th>";
-	    		foreach($fields_header as $key => $label){
-	    			echo "<th>$label</th>";
+	    		foreach($fields_header as $key => $value){
+					
+					if(is_array($value)){
+						
+						// implemento le funzionalita dell'array di fieldheader
+						isset($value['html_class']) ? $html_class = $value['html_class'] : $html_class = "";
+						isset($value['label']) ? $label = $value['label'] : $label = "";
+		
+						printf("<th class='%s'>%s</th>",$html_class,$label);
+					}
+						
+						
+						
+					else
+						echo "<th>$value</th>";
 	    		}
 	    		echo "</tr>";
 	    	}
-			
+					
 			// show rows of table
 			if(count($rows) > 0){
 				
 				$keys = array_keys($fields_header);
-				
-				echo "<tr>";
+
 	    		foreach($rows as $row){
 	    			
 					## td operazioni
 					?>
+					<tr>
 					<td style='text-align:center;'>
-						<a href='<?php echo $link_view.$row -> id;?>' title='Dettaglio' class='button btn-default btn-xs'><span class='glyphicon glyphicon-search'></span></a>
-						<a href='<?php echo $link_edit.$row -> id;?>' title='Modifica' class='button btn-default btn-xs'><span class='glyphicon glyphicon-pencil'></span></a>
-						<a href='<?php echo $link_delete.$row -> id;?>' title='Elimina' class='button btn-default btn-xs'><span class='glyphicon glyphicon-trash'></span></a>
+						<?php
+							if(!isset($view_btn) || $view_btn) 
+								printf("<a href='%s' title='Dettaglio' class='button btn-default btn-xs'><span class='glyphicon glyphicon-search'></span></a>\n",$link_view.$row -> id);
+							if(!isset($edit_btn) || $edit_btn)
+								printf("<a href='%s' title='Modifica' class='button btn-default btn-xs'><span class='glyphicon glyphicon-pencil'></span></a>\n",$link_edit.$row -> id);
+							if(!isset($delete_btn) || $delete_btn)
+								printf("<a href='%s' title='Elimina' class='button btn-default btn-xs'><span class='glyphicon glyphicon-trash'></span></a>\n",$link_delete.$row -> id);
+						?>
 					</td>
 					<?php
 					
+					
 	    			foreach($keys as $key)
-	    				echo "<td>{$row -> $key}</td>";
+						printf("<td>%s</td>",$row -> $key);
+						
+	    			?>
+	    			</tr>
+	    			<?php
 	    		}
-	    		echo "</tr>";
+	    		
 			}
 			else{
 				$colspan = count($fields_header)+1;
-				echo "<tr><td colspan='$colspan'><center><div class='alert alert-danger'>$text_noresult</td></center></tr>";
+				printf("<tr><td colspan='%s'><center><div class='alert alert-danger'>%s</td></center></tr>",$colspan,$text_noresult);
 			}
 			
 			
 	    ?>
 	    </table>
    	</div>
-</div>   	
+	</div>
+	
+	<?php
+				
+		// stampo la pulsantiera 
+		// della paginazione		
+		if(count($rows) > 0){
+			if(isset($paginator) && is_array($paginator)){				
+				$view = new View("general/paginator");
+				$view -> paginator = $paginator;
+				$view -> render();
+			}
+		}
+    ?>
 
 <?php
-	// includo il footer delle crud
-	$view = new View("_crud/footer");
-	$view -> footer = "testo nel footer";
+	$view = new View("general/footer");
 	$view -> render();
-?>
+?>   	
+
+
