@@ -12,14 +12,14 @@
 
 	// recupero la richiesta
 	$request = new Request();
+	
+	$method = $registry -> request['method'];
+	$controller = $registry -> request['controller'];
 		
 	// se sono loggato
 	// ruota verso il sistema
 	if($sys_user -> checkLogin()){
 		
-		$method = $registry -> request['method'];
-		$controller = $registry -> request['controller'];
-	
 		// array di acl
 		$denied_methods = array("login","do_login");
 		$denied_controllers = array("sys_user");
@@ -40,9 +40,6 @@
 	// altrimenti ruota alla pagina di login
 	else{
 				
-		$method = $registry -> request['method'];
-		$controller = $registry -> request['controller'];
-	
 		// array di acl
 		$allow_methods = array("do_login");
 		$allow_controllers = array("sys_user");
