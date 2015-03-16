@@ -3,7 +3,6 @@
 	 * carico tutto il framework
 	 */
 	include("autoload.inc.php");
-		
 	/**
 	 * implementazione di acl
 	 */
@@ -19,17 +18,20 @@
 	// se sono loggato
 	// ruota verso il sistema
 	if($sys_user -> checkLogin()){
-		
+			
 		// array di acl
-		$denied_methods = array("login","do_login");
-		$denied_controllers = array("sys_user");
-		
-		$not_permitted = in_array($method,$denied_methods) && in_array($controller,$denied_controllers);
-		
+		// devo evitare l'accessoa questo array se loggatto
+		$permitted = array(
+							array("controller" => "sys_user", "method" => "do_login"),
+							array("controller" => "sys_user", "method" => "login")
+						  );
+
+		$is_allowed = $sys_user -> permit($controller,$method,$permitted);
+	
 		// se non cerco di accedere 
 		// a metodo login e do_login 
 		// ruota
-	    if(!$not_permitted)
+	    if(!$is_allowed)
 			Router::route($request);
 		// altrimenti ruota su index
 		else
@@ -40,14 +42,11 @@
 	// altrimenti ruota alla pagina di login
 	else{
 				
-		// array di acl
-		$allow_methods = array("do_login");
-		$allow_controllers = array("sys_user");
-		
-		$permitted = in_array($method,$allow_methods) && in_array($controller,$allow_controllers);
-
+		// array_valid 
+		$permitted = array(array("controller" => "sys_user", "method" => "do_login"));
+				
 		// ruota su processore login
-		if($permitted){
+		if($sys_user -> permit($controller,$method, $permitted)){
 			
 			// instrado l'utente verso il metodo
 			// do_login di sys_user

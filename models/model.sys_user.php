@@ -67,6 +67,21 @@
 			
 			return $item;
 		}
+		
+		/**
+		 * metodo che mi permette di controllare l'accesso ai metodi e ai controller
+		 */ 
+		public function permit($controller = "" ,$method = "",$permitted_array = array()){
+		
+			if(count($permitted_array) <= 0 || $controller == "" || $method == "")
+				return false;
+				
+			foreach($permitted_array as $tuple_valid)
+				if($controller == $tuple_valid['controller'] && $method == $tuple_valid['method'])
+					return true;
+				
+			return false;
+		}
 		 
 
 		 
