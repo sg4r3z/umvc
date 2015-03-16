@@ -114,7 +114,10 @@
 			if(count($items) > 0){
 					
 				foreach($items as $item){
-					$data[] = $this -> get($item['id']);
+					
+					if(isset($item['id']))
+						$data[] = $this -> get($item['id']);
+						
 					//$data[] = (object) $item;
 				}
 				
