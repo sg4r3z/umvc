@@ -107,6 +107,7 @@
 		 * @return array or null
 		 */
 		public function listing($wherecondition = "id > 0"){
+			
 			$data = array();
 			$items = $this -> _db -> select($this -> _tableName,$wherecondition);
 			
@@ -117,10 +118,9 @@
 					//$data[] = (object) $item;
 				}
 				
-				return $data;
 			}
 			
-			return null;
+			return $data;
 		}
 		
 		/**
