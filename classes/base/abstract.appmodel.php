@@ -111,7 +111,7 @@
 			$data = array();
 			$items = $this -> _db -> select($this -> _tableName,$wherecondition);
 			
-			if(count($items) > 0){
+			if(!empty($items)){
 					
 				foreach($items as $item){
 					
