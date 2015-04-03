@@ -15,6 +15,14 @@
                                 <pattern><![CDATA[\d.\d]]></pattern>
                        </type> 
                        <type>
+                                <name>DOUBLE</name>
+                                <pattern><![CDATA[\d.\d]]></pattern>
+                       </type> 
+                       <type>
+                                <name>FLOAT</name>
+                                <pattern><![CDATA[\d.\d]]></pattern>
+                       </type> 
+                       <type>
                                 <name>VARCHAR</name>
                                 <pattern><![CDATA[.]]></pattern>
                        </type> 
