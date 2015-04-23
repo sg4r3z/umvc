@@ -50,13 +50,10 @@
     <?php
 		// includo i css opzionali
 		if(isset($css) && count($css) > 0){
-			foreach($header_css as $css)
-				printf("<link rel=\"stylesheet\" href=\"%s\ />",$css['url']);	
+			foreach($css as $css_line)
+				printf("<link rel=\"stylesheet\" href=\"%s\ />",$css_line['url']);	
 		}
-    ?>
     
-	<?php
-	
 		// includo i javascript opzionali
 		if(isset($js) && count($js) > 0)
 			foreach($js as $js_line)
