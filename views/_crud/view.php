@@ -18,8 +18,8 @@
 		<div class='col-md-12 text-right'>
 			<p>
 				<?php
-					if(isset($toolbar) && count($toolbar) > 0){
-						foreach($toolbar as $item){
+					if(isset($header_toolbar) && count($header_toolbar) > 0){
+						foreach($header_toolbar as $item){
 							?>
 								<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
 									<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
@@ -75,6 +75,25 @@
 			
 	    ?>
 	    </table>
+	    
+	    <!-- barra strumenti -->
+		<div class='col-md-12 text-right'>
+			<p>
+				<?php
+					if(isset($footer_toolbar) && count($footer_toolbar) > 0){
+						foreach($footer_toolbar as $item){
+							?>
+								<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
+									<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
+								</a>
+							<?php
+						
+						}
+					}
+				?>				
+			</p>
+		</div>
+		
    	</div>
 	</div>
 	
