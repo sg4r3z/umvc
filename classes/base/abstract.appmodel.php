@@ -142,7 +142,7 @@
 		 */
 		public function validate($items,$requiredMethod){
 			
-			foreach($this -> _validator as $fieldName => $vld_options){
+			foreach($this -> _validator -> get() as $fieldName => $vld_options){
 				
 				// se required controlla la presenza del campo nell'array
 				// validalo
