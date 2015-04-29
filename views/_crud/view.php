@@ -15,23 +15,25 @@
 	<div class='col-md-12'>
 		
 		<!-- barra strumenti -->
-		<div class='col-md-12 text-right'>
-			<p>
-				<?php
-					if(isset($header_toolbar) && count($header_toolbar) > 0){
-						foreach($header_toolbar as $item){
-							?>
-								<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
-									<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
-								</a>
+		<?php
+			if(isset($header_toolbar) && count($header_toolbar) > 0){
+				?>
+					<div class='col-md-12 text-right'>
+						<p>
 							<?php
-						
-						}
-					}
-				?>				
-			</p>
-			<hr />
-		</div>
+							foreach($header_toolbar as $item){
+								?>
+									<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
+										<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
+									</a>
+								<?php
+							}
+							?>
+						</p>
+					</div>
+				<?php
+			}
+		?>		
 	
 	    <table class='table table-hover table-bordered'>
 	    <?php 
@@ -77,22 +79,26 @@
 	    </table>
 	    
 	    <!-- barra strumenti -->
-		<div class='col-md-12 text-right'>
-			<p>
-				<?php
-					if(isset($footer_toolbar) && count($footer_toolbar) > 0){
-						foreach($footer_toolbar as $item){
-							?>
-								<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
-									<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
-								</a>
+		<?php
+			if(isset($footer_toolbar) && count($footer_toolbar) > 0){
+				?>
+					<div class='col-md-12 text-right'>
+						<p>
 							<?php
-						
-						}
-					}
-				?>				
-			</p>
-		</div>
+							foreach($footer_toolbar as $item){
+								?>
+									<a class='<?php echo $item['html_class']?>' href='<?php echo $item['href']?>' target='<?php echo isset($item['target']) ? $item['target'] : "";?>'>
+										<span class='<?php echo isset($item['icon']) ? $item['icon'] : "" ?>'></span> <?php echo $item['label']?>
+									</a>
+								<?php
+							}
+							?>
+						</p>
+					</div>
+				<?php
+			}
+		?>				
+		
 		
    	</div>
 	</div>
