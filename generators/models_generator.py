@@ -165,18 +165,27 @@ for nomeTabella in tabelle:
 							patternCampo += "{%s}" % dimensioneCampo
 							
 					## DIMENSIONE COMPOSTA DA NUMERO,NUMERO
-					
 					else:
 						
 						separatore = "."	
 						dimensioneTotale = dimensioneCampo.split(",",1)
-						patternTotale = patternCampo.split(separatore,1)
 						
+						## IMPLEMENTO LA DIMENSIONE DEI FLOAT E DECIMAL MYSQL
+						dimensioneTotale[0] = str(int(dimensioneTotale[0])-int(dimensioneTotale[1]))
+																	
+						patternTotale = patternCampo.split(separatore,1)
+												
 						i=0
-						patternCampo = ""
+						patternCampo = "-?"
 						for dimensione in dimensioneTotale:
-							patternCampo += patternTotale[i]+"{%s}" % (dimensione)
 							
+							## IMPLEMENTO IL MIN E MAX NUMERO DI CIFRE POSSIBILI
+							if int(dimensione) == 1:
+								patternCampo += patternTotale[i]+"{%s}" % (dimensione)
+							else:
+								patternCampo += patternTotale[i]+"{1,%s}" % (dimensione)
+
+								
 							## AGGIUNGO IL SEPARATORE NEL PATTERN
 							if i < len(dimensioneTotale)-1:
 								patternCampo += "\%s" % (separatore)
