@@ -35,16 +35,24 @@
 			
 			$view = new View("general/error_404");
 			
-			$view -> assign($data);
+			if(is_array($data))
+				$view -> assign($data);
+			else
+				$view -> error_string = $data;
+			
 			$view -> render();
 			exit(-1);
 		}
 		
 		public function error_500($data = array()){
-			
+		
 			$view = new View("general/error_500");
 			
-			$view -> assign($data);
+			if(is_array($data))
+				$view -> assign($data);
+			else
+				$view -> error_string = $data;
+				
 			$view -> render();
 			exit(-1);
 		}
