@@ -35,7 +35,7 @@
 			
 			$view = new View("general/error_404");
 			
-			if(is_array($data))
+			if(is_array($data) && count($data) > 0)
 				$view -> assign($data);
 			else
 				$view -> error_string = $data;
@@ -48,7 +48,7 @@
 		
 			$view = new View("general/error_500");
 			
-			if(is_array($data))
+			if(is_array($data) && count($data) > 0)
 				$view -> assign($data);
 			else
 				$view -> error_string = $data;
