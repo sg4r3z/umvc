@@ -105,6 +105,9 @@
 	 define("MESSAGE_PARAMETER_NOT_VALID","Impossibile procedere, il parametro passato non è valido");
 	 define("MESSAGE_RECORD_NOT_FOUND","Impossibile procedere, nessun record trovato");
 	 
+	 define("MESSAGE_METHOD_NOT_FOUND","Impossibile procedere, nessun metodo di controller con questo nome trovato");
+	 define("MESSAGE_INTERNAL_SERVER_ERROR","Impossibile procedere, si è verificato un errore interno del server");
+	 
 	  
 	
 ?>

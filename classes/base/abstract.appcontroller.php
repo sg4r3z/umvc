@@ -31,7 +31,7 @@
 		 * metodo di default
 		 * error_404 per tutti i controller
 		 */
-		public function error_404($data = array()){
+		public function error_404($data = array("error_string" => MESSAGE_METHOD_NOT_FOUND)){
 			
 			$view = new View("general/error_404");
 			
@@ -44,7 +44,7 @@
 			exit(-1);
 		}
 		
-		public function error_500($data = array()){
+		public function error_500($data = array("error_string" => MESSAGE_INTERNAL_SERVER_ERROR)){
 		
 			$view = new View("general/error_500");
 			

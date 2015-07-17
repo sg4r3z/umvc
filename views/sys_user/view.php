@@ -12,7 +12,7 @@
 		<!-- barra strumenti -->
 		<div class='col-md-12 text-right'>
 			<p>
-				<a href='<?php echo $link_edit.$row -> id?>' class="btn btn-primary "><span class="glyphicon glyphicon-pencil"></span> Modifica</a>
+				<a href='<?php echo $link_edit_password.$row -> id?>' class="btn btn-primary "><span class="glyphicon glyphicon-pencil"></span> Modifica Password</a>
 			</p>
 			<hr />
 		</div>

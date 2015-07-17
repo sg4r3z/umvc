@@ -59,34 +59,21 @@
 		public function editPwd(){
 
 			$registry = Registry::get_instance();
-			$squadra = $registry -> object['squadra'];
 			$sys_user = $registry -> object['sys_user'];
 
 			$role_fk = intval($_SESSION['userrole_fk']);
 			$user_id = intval($_SESSION['id']);
 
-			if($role_fk == 2){
+			if($role_fk == 1){
 
-				$item_squadra = $squadra -> listing("id > 0 AND sys_user_fk = {$user_id}");
-
-				if(count($item_squadra) == 0){
-					$ar = array();
-					$ar['error_string'] = "Impossibile procedere, utente non associato a nessuna squadra";
-					$this -> error_404($ar);
-				}
-
-				$item_squadra = $item_squadra[0];
-
-				
 				$view = new View("sys_user/edit_pwd");
 				
 				$view -> sys_user_id = $user_id;
 				$view -> title = "Modifica Password";
 				$view -> link_modifica_pwd = SITE_URL.US."sys_user".US."editPwd";
 				$view -> link_save_pwd = SITE_URL.US."sys_user".US."savePwd";
-				$view -> item_squadra = $item_squadra;
-				
 				$view -> render();
+				
 			}
 			
 			else{
@@ -221,7 +208,7 @@
 			$registry = Registry::get_instance();
 			$sys_user = $registry -> object['sys_user'];
 			
-			$wherecondition = "id > 0 ORDER BY sys_userrole_fk DESC";
+			$wherecondition = "id > 0 ORDER BY sys_userrole_fk ASC";
 			
 			// con modello wherecondition e numero di record da visualizzare		
 			$paginator = new Paginator($sys_user,"listing",$wherecondition);
@@ -431,9 +418,8 @@
 					$view -> title = "Dettaglio Utente";	   
 					$view -> row = $item;
 					$view -> item_role = $item_role;
-					$view -> link_edit = SITE_URL.US."sys_user".US."edit".US;
+					$view -> link_edit_password = SITE_URL.US."sys_user".US."editPwd".US;
 					$view -> render();
-					
 				}
 				
 				// documento non trovato

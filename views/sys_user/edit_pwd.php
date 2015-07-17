@@ -8,17 +8,7 @@
 		
 		<div class='col-md-12'>
 		
-			<div class='col-md-3 hidden-xs hidden-sm'>
-				<?php
-					$view = new View("general/navs");
-					$view -> item_squadra = $item_squadra;
-					$view -> link_home = SITE_URL;
-					$view -> link_logout = 	SITE_URL.US."sys_user".US."do_logout";
-					$view -> link_modifica_pwd = $link_modifica_pwd;
-					$view -> render();
-				?>
-			</div>
-			<div class='col-md-9 col-xs-12 col-sm-12'>
+			<div class='col-md-12 col-xs-12 col-sm-12'>
 				
 				<div class='page-header'>
 					<h1><?php echo utf8_decode($title)?></h1>
