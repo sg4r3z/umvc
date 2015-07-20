@@ -27,6 +27,10 @@
                                 <pattern><![CDATA[.]]></pattern>
                        </type> 
                        <type>
+                                <name>CHAR</name>
+                                <pattern><![CDATA[.]]></pattern>
+                       </type> 
+                       <type>
                                 <name>TEXT</name>
                                 <pattern><![CDATA[.]]></pattern>
                        </type> 
