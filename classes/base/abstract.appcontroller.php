@@ -17,42 +17,35 @@
 		public function __construct(){
 			$this -> registry = Registry::get_instance();
 		}
-		
-		/**
-		 * metodo di default
-		 * index per tutti i controller
-		 */
-		public function index(){
-			$view = new View("index/index");
-			$view -> render();
-		}
-		
+			
 		/**
 		 * metodo di default
 		 * error_404 per tutti i controller
 		 */
-		public function error_404($data = array("error_string" => MESSAGE_METHOD_NOT_FOUND)){
+		public function error_404($data = array()){
 			
 			$view = new View("general/error_404");
 			
-			if(is_array($data) && count($data) > 0)
-				$view -> assign($data);
-			else
+			if(is_string($data))
 				$view -> error_string = $data;
+		
+			else if(is_array($data) && count($data) > 0)
+				$view -> assign($data);
 			
 			$view -> render();
 			exit(-1);
 		}
 		
-		public function error_500($data = array("error_string" => MESSAGE_INTERNAL_SERVER_ERROR)){
+		public function error_500($data = array()){
 		
 			$view = new View("general/error_500");
 			
-			if(is_array($data) && count($data) > 0)
-				$view -> assign($data);
-			else
+			if(is_string($data))
 				$view -> error_string = $data;
-				
+		
+			else if(is_array($data) && count($data) > 0)
+				$view -> assign($data);
+		
 			$view -> render();
 			exit(-1);
 		}
