@@ -144,7 +144,7 @@ for nomeTabella in tabelle:
                 
                 ## RECUPERA IL PATTERN DAL DIZIONARIO
                 patternCampo = types[tipoCampo]
-                
+                                
                 ## SE IL TIPO DI CAMPO HA DIMENSIONE
                 ## IMPOSTA IL PATTERN CON  
                 ## LE RIPETIZIONI CORRETTE
@@ -166,7 +166,7 @@ for nomeTabella in tabelle:
 							
 					## DIMENSIONE COMPOSTA DA NUMERO,NUMERO
 					else:
-						
+																		
 						separatore = "."	
 						dimensioneTotale = dimensioneCampo.split(",",1)
 						
@@ -174,25 +174,26 @@ for nomeTabella in tabelle:
 						dimensioneTotale[0] = str(int(dimensioneTotale[0])-int(dimensioneTotale[1]))
 																	
 						patternTotale = patternCampo.split(separatore,1)
-												
+											
 						i=0
 						patternCampo = "-?"
 						for dimensione in dimensioneTotale:
-							
+														
 							## IMPLEMENTO IL MIN E MAX NUMERO DI CIFRE POSSIBILI
 							if int(dimensione) == 1:
 								patternCampo += patternTotale[i]+"{%s}" % (dimensione)
 							else:
 								patternCampo += patternTotale[i]+"{1,%s}" % (dimensione)
-
-								
+															
 							## AGGIUNGO IL SEPARATORE NEL PATTERN
 							if i < len(dimensioneTotale)-1:
-								patternCampo += "\%s" % (separatore)
+								patternCampo += "(\%s" % (separatore)
+							
+							if i == len(dimensioneTotale)-1:
+								patternCampo += ")?"
 							
 							i=i+1
-
-											
+								
 					## DEVI AGGIUNGERE GLI OPERATORI DI 
 					## INIZIO E FINE REGEX ^ $
 					patternCampo = '^' + patternCampo
